@@ -1,0 +1,878 @@
+[
+  {
+    "id": "netflix",
+    "brand": "Netflix",
+    "title": "Netflix Premium",
+    "group_name": "apps",
+    "category": "Streaming",
+    "tag": "Streaming",
+    "short_description": "Pilihan paket Netflix untuk menikmati film, serial, dan dokumenter.",
+    "description": "Pilih jenis paket Netflix yang tersedia dan periksa ketentuan penggunaannya sebelum memesan.",
+    "info": "Admin akan membantu mengonfirmasi slot, profil, masa aktif, dan ketentuan paket yang dipilih.",
+    "sort_order": 1,
+    "image_url": null,
+    "variants": [
+      {
+        "name": "2U1P — 1 Bulan",
+        "price": null,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Konfirmasi harga dan slot kepada admin.",
+        "sort_order": 1
+      },
+      {
+        "name": "1U1P — 1 Bulan",
+        "price": null,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Konfirmasi harga dan slot kepada admin.",
+        "sort_order": 2
+      },
+      {
+        "name": "Semiprivat — 1 Bulan",
+        "price": null,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Konfirmasi harga dan slot kepada admin.",
+        "sort_order": 3
+      }
+    ],
+    "is_active": true
+  },
+  {
+    "id": "spotify",
+    "brand": "Spotify",
+    "title": "Spotify Premium",
+    "group_name": "apps",
+    "category": "Streaming",
+    "tag": "Music",
+    "short_description": "Layanan musik dan podcast untuk menemani aktivitas sehari-hari.",
+    "description": "Tanyakan pilihan paket Spotify Premium yang tersedia kepada admin.",
+    "info": "Durasi, jenis akun, dan metode aktivasi perlu dikonfirmasi sebelum pembayaran.",
+    "sort_order": 2,
+    "image_url": null,
+    "variants": [
+      {
+        "name": "Paket Spotify Premium",
+        "price": null,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Tanyakan durasi dan jenis paket yang tersedia.",
+        "sort_order": 1
+      }
+    ],
+    "is_active": true
+  },
+  {
+    "id": "youtube",
+    "brand": "YouTube",
+    "title": "YouTube Premium",
+    "group_name": "apps",
+    "category": "Streaming",
+    "tag": "Video",
+    "short_description": "Pengalaman menonton video dengan layanan YouTube Premium.",
+    "description": "Tanyakan pilihan paket YouTube Premium yang tersedia kepada admin.",
+    "info": "Jenis akses, masa aktif, dan ketentuan paket akan dikonfirmasi oleh admin.",
+    "sort_order": 3,
+    "image_url": null,
+    "variants": [
+      {
+        "name": "Paket YouTube Premium",
+        "price": null,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Tanyakan durasi dan jenis paket yang tersedia.",
+        "sort_order": 1
+      }
+    ],
+    "is_active": true
+  },
+  {
+    "id": "capcut",
+    "brand": "CapCut",
+    "title": "CapCut Premium",
+    "group_name": "apps",
+    "category": "Editing",
+    "tag": "Video Editing",
+    "short_description": "Fitur editing video premium untuk konten yang lebih maksimal.",
+    "description": "Paket CapCut Premium untuk kebutuhan editing video dan pembuatan konten.",
+    "info": "Tanyakan detail aktivasi, masa aktif, dan ketentuan akses kepada admin.",
+    "sort_order": 4,
+    "image_url": null,
+    "variants": [
+      {
+        "name": "Privat — 7 Hari",
+        "price": null,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Harga dan stok dikonfirmasi admin.",
+        "sort_order": 1
+      },
+      {
+        "name": "Privat — 1 Bulan",
+        "price": null,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Harga dan stok dikonfirmasi admin.",
+        "sort_order": 2
+      }
+    ],
+    "is_active": true
+  },
+  {
+    "id": "alightmotion",
+    "brand": "Alight Motion",
+    "title": "Alight Motion Premium",
+    "group_name": "apps",
+    "category": "Editing",
+    "tag": "Motion Design",
+    "short_description": "Motion graphic, animasi, efek visual, dan editing video di perangkat mobile.",
+    "description": "Tersedia pilihan aktivasi menggunakan email seller atau email buyer.",
+    "info": "Konfirmasi alur aktivasi, masa aktif, dan ketentuan penggunaan sebelum order. Logo utama menggunakan ikon aplikasi dari listing Google Play.",
+    "sort_order": 5,
+    "image_url": null,
+    "variants": [
+      {
+        "name": "Email Seller — 1 Tahun",
+        "price": null,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Harga dan stok dikonfirmasi admin.",
+        "sort_order": 1
+      },
+      {
+        "name": "Email Buyer — 1 Tahun",
+        "price": null,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Harga dan stok dikonfirmasi admin.",
+        "sort_order": 2
+      }
+    ],
+    "is_active": true
+  },
+  {
+    "id": "canva",
+    "brand": "Canva",
+    "title": "Canva Pro & Canva Head",
+    "group_name": "apps",
+    "category": "Editing",
+    "tag": "Design",
+    "short_description": "Desain presentasi, poster, konten, dan materi kreatif.",
+    "description": "Tersedia pilihan Canva Pro Member, Canva Head, dan Lifetime.",
+    "info": "Perhatikan jenis undangan email dan tipe akun pada setiap varian. Hubungi admin untuk memastikan ketentuan paket.",
+    "sort_order": 6,
+    "image_url": null,
+    "variants": [
+      {
+        "name": "Pro Member — 1 Bulan (Invite Email Buyer)",
+        "price": null,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Konfirmasi harga dan ketentuan aktivasi.",
+        "sort_order": 1
+      },
+      {
+        "name": "Pro Member — 2 Bulan (Invite Email Buyer)",
+        "price": null,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Konfirmasi harga dan ketentuan aktivasi.",
+        "sort_order": 2
+      },
+      {
+        "name": "Pro Member — 3 Bulan (Invite Email Buyer)",
+        "price": null,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Konfirmasi harga dan ketentuan aktivasi.",
+        "sort_order": 3
+      },
+      {
+        "name": "Canva Head — 1 Bulan Full",
+        "price": null,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Konfirmasi harga dan ketentuan aktivasi.",
+        "sort_order": 4
+      },
+      {
+        "name": "Canva Lifetime (Invite Email Buyer)",
+        "price": null,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Konfirmasi harga dan ketentuan aktivasi.",
+        "sort_order": 5
+      },
+      {
+        "name": "Canva Head Lifetime",
+        "price": null,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Konfirmasi harga dan ketentuan aktivasi.",
+        "sort_order": 6
+      }
+    ],
+    "is_active": true
+  },
+  {
+    "id": "chatgpt",
+    "brand": "ChatGPT",
+    "title": "ChatGPT Plan",
+    "group_name": "apps",
+    "category": "AI & Produktivitas",
+    "tag": "AI Assistant",
+    "short_description": "Asisten AI untuk ide, belajar, menulis, dan produktivitas.",
+    "description": "Lihat pilihan paket ChatGPT yang tersedia.",
+    "info": "Pastikan memahami jenis akses sharing dan ketentuan penggunaan sebelum melakukan pemesanan.",
+    "sort_order": 7,
+    "image_url": null,
+    "variants": [
+      {
+        "name": "GO Sharing — 1 Bulan",
+        "price": null,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Harga dan stok dikonfirmasi admin.",
+        "sort_order": 1
+      },
+      {
+        "name": "Plus Sharing — 1 Bulan",
+        "price": null,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Harga dan stok dikonfirmasi admin.",
+        "sort_order": 2
+      },
+      {
+        "name": "GO Sharing — 3 Bulan",
+        "price": null,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Harga dan stok dikonfirmasi admin.",
+        "sort_order": 3
+      }
+    ],
+    "is_active": true
+  },
+  {
+    "id": "gemini",
+    "brand": "Gemini",
+    "title": "Gemini AI + Google Drive",
+    "group_name": "apps",
+    "category": "AI & Produktivitas",
+    "tag": "AI & Cloud",
+    "short_description": "Pilihan layanan Gemini AI, Google Drive 2TB, dan Veo sesuai paket.",
+    "description": "Paket dengan kombinasi Gemini AI, Google Drive 2TB, dan Veo sesuai jenis akses.",
+    "info": "Masa aktif dan jenis akses berbeda pada setiap paket. Pastikan detail layanan dikonfirmasi oleh admin.",
+    "sort_order": 8,
+    "image_url": null,
+    "variants": [
+      {
+        "name": "Gemini AI + GDrive 2TB + Veo Invite — 18 Bulan",
+        "price": null,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Konfirmasi detail akses dan masa aktif.",
+        "sort_order": 1
+      },
+      {
+        "name": "Gemini AI + GDrive 2TB + Veo Head / Owner — 1 Tahun",
+        "price": null,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Konfirmasi detail akses dan masa aktif.",
+        "sort_order": 2
+      }
+    ],
+    "is_active": true
+  },
+  {
+    "id": "grammarly",
+    "brand": "Grammarly",
+    "title": "Grammarly Premium",
+    "group_name": "apps",
+    "category": "AI & Produktivitas",
+    "tag": "Writing",
+    "short_description": "Bantu mengecek tata bahasa, ejaan, dan kualitas tulisan.",
+    "description": "Pilihan Grammarly Premium untuk kebutuhan menulis, belajar, dan pekerjaan.",
+    "info": "Tanyakan perbedaan akses sharing dan privat kepada admin sebelum memesan.",
+    "sort_order": 9,
+    "image_url": null,
+    "variants": [
+      {
+        "name": "Sharing — 1 Bulan",
+        "price": null,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Konfirmasi harga dan akses.",
+        "sort_order": 1
+      },
+      {
+        "name": "Privat — 1 Bulan",
+        "price": null,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Konfirmasi harga dan akses.",
+        "sort_order": 2
+      }
+    ],
+    "is_active": true
+  },
+  {
+    "id": "quillbot",
+    "brand": "QuillBot",
+    "title": "QuillBot Premium",
+    "group_name": "apps",
+    "category": "AI & Produktivitas",
+    "tag": "Writing",
+    "short_description": "Alat bantu parafrase dan penyuntingan tulisan.",
+    "description": "Paket QuillBot Premium untuk membantu proses penyuntingan dan parafrase.",
+    "info": "Tanyakan stok dan detail akses kepada admin.",
+    "sort_order": 10,
+    "image_url": null,
+    "variants": [
+      {
+        "name": "Sharing — 1 Bulan",
+        "price": null,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Konfirmasi harga dan akses.",
+        "sort_order": 1
+      }
+    ],
+    "is_active": true
+  },
+  {
+    "id": "mlbb",
+    "brand": "Mobile Legends",
+    "title": "Mobile Legends: Bang Bang",
+    "group_name": "games",
+    "category": "Game Top Up",
+    "tag": "25 Diamond + 5 Weekly Pass",
+    "short_description": "Top up MLBB dengan 25 pilihan nominal Diamond dan 5 pilihan Weekly Diamond Pass.",
+    "description": "Pilih nominal Diamond Mobile Legends: Bang Bang atau Weekly Diamond Pass 1x–5x. Masukkan User ID dan Zone ID dengan benar saat pemesanan.",
+    "info": "Harga mengikuti daftar harga toko. Periksa kembali User ID dan Zone ID sebelum melakukan pembayaran. Weekly Diamond Pass tersedia dalam pilihan 1x sampai 5x. Logo utama menggunakan ikon aplikasi resmi di Google Play.",
+    "sort_order": 11,
+    "image_url": null,
+    "variants": [
+      {
+        "name": "30 Diamond",
+        "price": 11000,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Konfirmasi stok sebelum pembayaran.",
+        "sort_order": 1
+      },
+      {
+        "name": "85 Diamond",
+        "price": 28000,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Konfirmasi stok sebelum pembayaran.",
+        "sort_order": 2
+      },
+      {
+        "name": "100 Diamond",
+        "price": 33000,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Konfirmasi stok sebelum pembayaran.",
+        "sort_order": 3
+      },
+      {
+        "name": "148 Diamond",
+        "price": 48000,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Konfirmasi stok sebelum pembayaran.",
+        "sort_order": 4
+      },
+      {
+        "name": "240 Diamond",
+        "price": 75000,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Konfirmasi stok sebelum pembayaran.",
+        "sort_order": 5
+      },
+      {
+        "name": "305 Diamond",
+        "price": 95000,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Konfirmasi stok sebelum pembayaran.",
+        "sort_order": 6
+      },
+      {
+        "name": "370 Diamond",
+        "price": 115000,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Konfirmasi stok sebelum pembayaran.",
+        "sort_order": 7
+      },
+      {
+        "name": "408 Diamond",
+        "price": 125000,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Konfirmasi stok sebelum pembayaran.",
+        "sort_order": 8
+      },
+      {
+        "name": "518 Diamond",
+        "price": 160000,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Konfirmasi stok sebelum pembayaran.",
+        "sort_order": 9
+      },
+      {
+        "name": "568 Diamond",
+        "price": 170000,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Konfirmasi stok sebelum pembayaran.",
+        "sort_order": 10
+      },
+      {
+        "name": "716 Diamond",
+        "price": 215000,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Konfirmasi stok sebelum pembayaran.",
+        "sort_order": 11
+      },
+      {
+        "name": "790 Diamond",
+        "price": 258000,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Konfirmasi stok sebelum pembayaran.",
+        "sort_order": 12
+      },
+      {
+        "name": "875 Diamond",
+        "price": 258000,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Konfirmasi stok sebelum pembayaran.",
+        "sort_order": 13
+      },
+      {
+        "name": "966 Diamond",
+        "price": 285000,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Konfirmasi stok sebelum pembayaran.",
+        "sort_order": 14
+      },
+      {
+        "name": "1065 Diamond",
+        "price": 318000,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Konfirmasi stok sebelum pembayaran.",
+        "sort_order": 15
+      },
+      {
+        "name": "1136 Diamond",
+        "price": 338000,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Konfirmasi stok sebelum pembayaran.",
+        "sort_order": 16
+      },
+      {
+        "name": "1358 Diamond",
+        "price": 405000,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Konfirmasi stok sebelum pembayaran.",
+        "sort_order": 17
+      },
+      {
+        "name": "1506 Diamond",
+        "price": 440000,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Konfirmasi stok sebelum pembayaran.",
+        "sort_order": 18
+      },
+      {
+        "name": "1704 Diamond",
+        "price": 500000,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Konfirmasi stok sebelum pembayaran.",
+        "sort_order": 19
+      },
+      {
+        "name": "2010 Diamond",
+        "price": 555000,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Konfirmasi stok sebelum pembayaran.",
+        "sort_order": 20
+      },
+      {
+        "name": "2232 Diamond",
+        "price": 620000,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Konfirmasi stok sebelum pembayaran.",
+        "sort_order": 21
+      },
+      {
+        "name": "2578 Diamond",
+        "price": 720000,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Konfirmasi stok sebelum pembayaran.",
+        "sort_order": 22
+      },
+      {
+        "name": "2855 Diamond",
+        "price": 805000,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Konfirmasi stok sebelum pembayaran.",
+        "sort_order": 23
+      },
+      {
+        "name": "3024 Diamond",
+        "price": 850000,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Konfirmasi stok sebelum pembayaran.",
+        "sort_order": 24
+      },
+      {
+        "name": "3198 Diamond",
+        "price": 900000,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Konfirmasi stok sebelum pembayaran.",
+        "sort_order": 25
+      },
+      {
+        "name": "Weekly Diamond Pass",
+        "price": 33000,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Konfirmasi stok sebelum pembayaran.",
+        "sort_order": 26
+      },
+      {
+        "name": "Weekly Diamond Pass 2x",
+        "price": 65000,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Konfirmasi stok sebelum pembayaran.",
+        "sort_order": 27
+      },
+      {
+        "name": "Weekly Diamond Pass 3x",
+        "price": 95000,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Konfirmasi stok sebelum pembayaran.",
+        "sort_order": 28
+      },
+      {
+        "name": "Weekly Diamond Pass 4x",
+        "price": 130000,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Konfirmasi stok sebelum pembayaran.",
+        "sort_order": 29
+      },
+      {
+        "name": "Weekly Diamond Pass 5x",
+        "price": 161000,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Konfirmasi stok sebelum pembayaran.",
+        "sort_order": 30
+      }
+    ],
+    "is_active": true
+  },
+  {
+    "id": "freefire",
+    "brand": "Free Fire",
+    "title": "Free Fire Diamond",
+    "group_name": "games",
+    "category": "Game Top Up",
+    "tag": "20 Diamond + 3 Membership",
+    "short_description": "20 pilihan nominal Diamond, Membership Mingguan, BP Card, dan Membership Bulanan.",
+    "description": "Pilih nominal Diamond atau item membership Free Fire. Harga ditampilkan sesuai daftar harga toko.",
+    "info": "Pastikan Player ID benar sebelum transaksi. Logo utama menggunakan aset logo Free Fire dari halaman brand resmi Garena.",
+    "sort_order": 12,
+    "image_url": null,
+    "variants": [
+      {
+        "name": "50 Diamond",
+        "price": 8000,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Konfirmasi stok sebelum pembayaran.",
+        "sort_order": 1
+      },
+      {
+        "name": "90 Diamond",
+        "price": 14000,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Konfirmasi stok sebelum pembayaran.",
+        "sort_order": 2
+      },
+      {
+        "name": "100 Diamond",
+        "price": 16000,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Konfirmasi stok sebelum pembayaran.",
+        "sort_order": 3
+      },
+      {
+        "name": "140 Diamond",
+        "price": 19000,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Konfirmasi stok sebelum pembayaran.",
+        "sort_order": 4
+      },
+      {
+        "name": "200 Diamond",
+        "price": 27000,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Konfirmasi stok sebelum pembayaran.",
+        "sort_order": 5
+      },
+      {
+        "name": "355 Diamond",
+        "price": 45000,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Konfirmasi stok sebelum pembayaran.",
+        "sort_order": 6
+      },
+      {
+        "name": "720 Diamond",
+        "price": 85000,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Konfirmasi stok sebelum pembayaran.",
+        "sort_order": 7
+      },
+      {
+        "name": "800 Diamond",
+        "price": 95000,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Konfirmasi stok sebelum pembayaran.",
+        "sort_order": 8
+      },
+      {
+        "name": "1000 Diamond",
+        "price": 120000,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Konfirmasi stok sebelum pembayaran.",
+        "sort_order": 9
+      },
+      {
+        "name": "1440 Diamond",
+        "price": 170000,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Konfirmasi stok sebelum pembayaran.",
+        "sort_order": 10
+      },
+      {
+        "name": "1800 Diamond",
+        "price": 210000,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Konfirmasi stok sebelum pembayaran.",
+        "sort_order": 11
+      },
+      {
+        "name": "2180 Diamond",
+        "price": 255000,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Konfirmasi stok sebelum pembayaran.",
+        "sort_order": 12
+      },
+      {
+        "name": "2720 Diamond",
+        "price": 330000,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Konfirmasi stok sebelum pembayaran.",
+        "sort_order": 13
+      },
+      {
+        "name": "3640 Diamond",
+        "price": 420000,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Konfirmasi stok sebelum pembayaran.",
+        "sort_order": 14
+      },
+      {
+        "name": "4000 Diamond",
+        "price": 460000,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Konfirmasi stok sebelum pembayaran.",
+        "sort_order": 15
+      },
+      {
+        "name": "4450 Diamond",
+        "price": 510000,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Konfirmasi stok sebelum pembayaran.",
+        "sort_order": 16
+      },
+      {
+        "name": "5500 Diamond",
+        "price": 620000,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Konfirmasi stok sebelum pembayaran.",
+        "sort_order": 17
+      },
+      {
+        "name": "6000 Diamond",
+        "price": 685000,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Konfirmasi stok sebelum pembayaran.",
+        "sort_order": 18
+      },
+      {
+        "name": "6550 Diamond",
+        "price": 750000,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Konfirmasi stok sebelum pembayaran.",
+        "sort_order": 19
+      },
+      {
+        "name": "7290 Diamond",
+        "price": 830000,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Konfirmasi stok sebelum pembayaran.",
+        "sort_order": 20
+      },
+      {
+        "name": "Membership Mingguan",
+        "price": 28000,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Konfirmasi stok sebelum pembayaran.",
+        "sort_order": 21
+      },
+      {
+        "name": "BP Card",
+        "price": 42000,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Konfirmasi stok sebelum pembayaran.",
+        "sort_order": 22
+      },
+      {
+        "name": "Membership Bulanan",
+        "price": 78000,
+        "original_price": null,
+        "discount_enabled": false,
+        "stock_status": "confirm",
+        "note": "Konfirmasi stok sebelum pembayaran.",
+        "sort_order": 23
+      }
+    ],
+    "is_active": true
+  }
+]
