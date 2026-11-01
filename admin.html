@@ -191,6 +191,8 @@
         <button class="side-btn" type="button" data-admin-tab="devices"><span class="side-icon">▣</span>Perangkat login</button>
         <button class="side-btn" type="button" data-admin-tab="orders"><span class="side-icon">▤</span>Pesanan</button>
         <button class="side-btn" type="button" data-admin-tab="products"><span class="side-icon">◇</span>Katalog produk</button>
+        <button class="side-btn" type="button" data-admin-tab="posters"><span class="side-icon">▧</span>Poster harga</button>
+        <button class="side-btn" type="button" data-admin-tab="tickets"><span class="side-icon">✉</span>Tiket bantuan</button>
         <button class="side-btn" type="button" data-admin-tab="support"><span class="side-icon">✉</span>Refund & garansi</button>
         <button class="side-btn" type="button" data-admin-tab="audit"><span class="side-icon">◷</span>Log aktivitas</button>
       </aside>
@@ -238,8 +240,12 @@
         </section>
 
         <section class="tab" id="tab-orders">
-          <div class="page-head"><div><div class="eyebrow">ORDER MANAGEMENT</div><h1>Manajemen pesanan</h1><p>Status pembayaran hanya berubah setelah diverifikasi oleh webhook payment gateway.</p></div></div>
+          <div class="page-head"><div><div class="eyebrow">ORDER MANAGEMENT</div><h1>Manajemen pesanan</h1><p>Verifikasi pembayaran melalui gateway atau secara manual setelah benar-benar menerima pembayaran.</p></div></div>
           <div class="panel"><div class="panel-head"><div><h2>Semua pesanan online</h2><p>Data pelanggan hanya dapat diakses oleh pemilik akun dan administrator.</p></div><input class="search" id="orderSearch" type="search" placeholder="Cari invoice, pelanggan, WhatsApp…" aria-label="Cari pesanan"></div><div id="ordersTable" class="empty">Memuat pesanan…</div></div>
+          <div class="panel">
+            <div class="panel-head"><div><h2>Konfirmasi pembayaran & catatan admin</h2><p>Fitur pelengkap dari dashboard versi 4–6. Pastikan pembayaran diterima sebelum menandai lunas.</p></div></div>
+            <div id="rdOrderPaymentAdmin" class="empty">Memuat konfirmasi pembayaran…</div>
+          </div>
         </section>
 
         <section class="tab" id="tab-products">
@@ -256,6 +262,14 @@
           <div class="panel"><div class="panel-head"><div><h2>Klaim garansi</h2></div></div><div id="warrantyTable" class="empty">Memuat klaim…</div></div>
         </section>
 
+        <section class="tab" id="tab-posters">
+          <div class="page-head"><div><div class="eyebrow">PRICE LIST & STORAGE</div><h1>Poster harga</h1><p>Unggah poster Mobile Legends dan Free Fire ke Storage versi 4–6.</p></div></div>
+          <div class="panel"><div id="rdPosterAdmin" class="empty">Memuat poster…</div></div>
+        </section>
+        <section class="tab" id="tab-tickets">
+          <div class="page-head"><div><div class="eyebrow">CUSTOMER SERVICE</div><h1>Tiket bantuan</h1><p>Balas laporan pelanggan dari sistem tiket versi 4–6.</p></div></div>
+          <div class="panel"><div id="rdTicketsAdmin" class="empty">Memuat tiket…</div></div>
+        </section>
         <section class="tab" id="tab-audit">
           <div class="page-head"><div><div class="eyebrow">SECURITY & AUDIT</div><h1>Log aktivitas</h1><p>Riwayat perubahan katalog dan status pesanan oleh sistem atau administrator.</p></div></div>
           <div class="panel"><div id="auditTable" class="empty">Memuat aktivitas…</div></div>
@@ -308,6 +322,7 @@
         <label class="field">Harga jual (Rupiah)<input id="variantPrice" type="number" min="0" step="1" placeholder="Kosongkan jika hubungi admin"></label>
         <label class="field">Harga normal<input id="variantOriginalPrice" type="number" min="0" step="1" placeholder="Opsional"></label>
         <label class="field">Status stok<select id="variantStock"><option value="available">Tersedia</option><option value="limited">Stok terbatas</option><option value="out_of_stock">Habis</option><option value="confirm">Konfirmasi admin</option></select></label>
+        <label class="field">Jumlah stok (opsional)<input id="variantQuantity" type="number" min="0" step="1" placeholder="Kosongkan bila tidak dibatasi"></label>
         <label class="field">Diskon<select id="variantDiscount"><option value="false">Tidak aktif</option><option value="true">Aktif</option></select></label>
         <label class="field">Urutan varian<input id="variantSortOrder" type="number" min="0" step="1" value="1"></label>
         <label class="field">Status varian<select id="variantActive"><option value="true">Aktif</option><option value="false">Nonaktif</option></select></label>
@@ -324,11 +339,12 @@
   <div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
   <footer class="footer shell">RUANGDIGITAL190 · Admin Control Center · Akses administrator dilindungi Supabase Auth dan Row Level Security.</footer>
 
+  <script src="./server-config.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script id="rd-config">
 // Public configuration: replace these two placeholders in index.html, admin.html, and reset.html.
 // Never paste service_role keys, admin passwords, or database passwords into GitHub.
-window.RD_CONFIG = {
+window.RD_CONFIG = window.RD_CONFIG || {
   supabaseUrl: "PASTE_PROJECT_URL_HERE",
   supabaseAnonKey: "PASTE_PUBLIC_ANON_KEY_HERE",
   siteUrl: window.location.origin + window.location.pathname.replace(/[^/]+$/, ""),
@@ -342,7 +358,7 @@ window.RD_CONFIG = {
   const config = window.RD_CONFIG || {};
   const looksConfigured = /^https:\/\/.+\.supabase\.co$/.test(config.supabaseUrl || "") &&
     typeof config.supabaseAnonKey === "string" && config.supabaseAnonKey.length > 30 &&
-    !config.supabaseUrl.includes("YOUR-PROJECT") && !config.supabaseAnonKey.includes("YOUR_");
+    !config.supabaseUrl.includes("YOUR-PROJECT") && !config.supabaseUrl.includes("PASTE_") && !config.supabaseAnonKey.startsWith("PASTE_") && !config.supabaseAnonKey.includes("YOUR_");
 
   window.rdBackendReady = false;
   window.rdSupabase = null;
@@ -472,9 +488,15 @@ window.RD_CONFIG = {
         onConflict: "user_id,device_id"
       });
       if (error) {
-        // The website still works if the optional device migration has not been applied.
-        console.warn("RUANGDIGITAL190 device tracking is not ready:", error.message);
-        return;
+        // SQL versi 4–6: primary key id dan kolom last_seen, tanpa device_id.
+        const legacy = await client().from("device_sessions").upsert({
+          id: deviceId(), user_id: userId, device_label: deviceLabel(ua),
+          last_seen: now, is_active: true
+        }, { onConflict: "id" });
+        if (legacy.error) {
+          console.warn("RUANGDIGITAL190 device tracking unavailable:", legacy.error.message);
+          return;
+        }
       }
       currentUserId = userId;
       try { localStorage.setItem(USER_KEY, userId); } catch (_) {}
@@ -502,7 +524,12 @@ window.RD_CONFIG = {
         signed_out_at: new Date().toISOString(),
         last_seen_at: new Date().toISOString()
       }).eq("user_id", userId).eq("device_id", deviceId());
-      if (error) console.warn("Could not mark device session inactive:", error.message);
+      if (error) {
+        const old = await client().from("device_sessions")
+          .update({is_active: false, last_seen: new Date().toISOString()})
+          .eq("id", deviceId());
+        if (old.error) console.warn("Could not mark device inactive:", old.error.message);
+      }
     } catch (error) {
       console.warn("Could not mark device session inactive:", error);
     }
@@ -629,10 +656,10 @@ window.RD_CONFIG = {
     const { data: { user }, error: userError } = await client().auth.getUser();
     if (userError || !user) return null;
     const { data, error } = await client().from("profiles")
-      .select("id,username,display_name,email,whatsapp,role,created_at")
+      .select("*")
       .eq("id", user.id).maybeSingle();
     if (error) throw error;
-    return data || { id: user.id, username: user.user_metadata?.username || "pelanggan", display_name: user.user_metadata?.display_name || "Pelanggan", email: user.email, role: "customer" };
+    return data ? { ...data, whatsapp: data.whatsapp ?? data.phone ?? "", email: data.email ?? user.email } : { id: user.id, username: user.user_metadata?.username || "pelanggan", display_name: user.user_metadata?.display_name || "Pelanggan", email: user.email, role: "customer" };
   }
 
   async function refreshAccount() {
@@ -820,17 +847,17 @@ window.RD_CONFIG = {
   }).format(Number(value || 0));
   const dateText = value => value ? new Date(value).toLocaleString("id-ID") : "—";
   const ACTIVE_WINDOW_MS = 3 * 60 * 1000;
-  const IMAGE_BUCKET = "rd190-product-images";
+  const IMAGE_BUCKET = "rd190-images"; // existing Storage bucket from version 4–6
 
   let usersCache = [], ordersCache = [], productsCache = [];
   let refundsCache = [], warrantyCache = [], auditsCache = [], devicesCache = [];
   let usersTotal = 0, deviceTableReady = true, imageColumnReady = true, toastTimer = null, previewObjectUrl = null, slugEdited = false;
   let currentProfile = null;
 
-  const orderStatuses = ["awaiting_confirmation", "awaiting_payment", "processing", "completed", "cancelled", "failed", "refunded"];
+  const orderStatuses = ["new", "awaiting_confirmation", "awaiting_payment", "processing", "completed", "cancelled", "failed", "refunded"];
   const requestStatuses = ["waiting_review", "processing", "approved", "rejected", "completed"];
   const labels = {
-    awaiting_confirmation: "Menunggu konfirmasi", awaiting_payment: "Menunggu pembayaran",
+    new: "Baru", awaiting_confirmation: "Menunggu konfirmasi", awaiting_payment: "Menunggu pembayaran",
     processing: "Diproses", completed: "Selesai", cancelled: "Dibatalkan",
     failed: "Gagal", refunded: "Direfund", unpaid: "Belum dibayar",
     pending: "Menunggu", paid: "Lunas", expired: "Kedaluwarsa",
@@ -862,7 +889,7 @@ window.RD_CONFIG = {
   }
   function clearError() { $("loginError")?.classList.add("hidden"); }
   function setTab(name) {
-    const allowed = ["overview", "users", "devices", "orders", "products", "support", "audit"];
+    const allowed = ["overview", "users", "devices", "orders", "products", "support", "posters", "tickets", "audit"];
     if (!allowed.includes(name)) return;
     document.querySelectorAll(".tab").forEach(el => el.classList.toggle("active", el.id === `tab-${name}`));
     document.querySelectorAll("[data-admin-tab]").forEach(el => el.classList.toggle("active", el.dataset.adminTab === name));
@@ -965,21 +992,8 @@ window.RD_CONFIG = {
   }
 
   async function loadProductsForAdmin() {
-    const withImage = await client().from("products")
-      .select("id,brand,title,group_name,category,tag,short_description,description,info,image_url,is_active,sort_order,product_variants(id,name,price,original_price,discount_enabled,stock_status,note,sort_order,is_active)")
-      .order("sort_order", { ascending: true });
-    if (withImage.error && /image_url/i.test(withImage.error.message || "")) {
-      imageColumnReady = false;
-      const legacy = await client().from("products")
-        .select("id,brand,title,group_name,category,tag,short_description,description,info,is_active,sort_order,product_variants(id,name,price,original_price,discount_enabled,stock_status,note,sort_order,is_active)")
-        .order("sort_order", { ascending: true });
-      if (!legacy.error) {
-        notify("Katalog termuat, tetapi kolom gambar belum aktif. Jalankan admin-enhancements.sql untuk mengaktifkan unggah gambar.");
-        return legacy;
-      }
-    }
-    if (!withImage.error) imageColumnReady = true;
-    return withImage;
+    return await client().from("products")
+      .select("*,product_variants(*)").order("sort_order", { ascending: true });
   }
 
   async function refreshAll() {
@@ -987,47 +1001,54 @@ window.RD_CONFIG = {
     const refreshButton = $("refreshAll");
     if (refreshButton) { refreshButton.disabled = true; refreshButton.textContent = "Memuat…"; }
     try {
-      const results = await Promise.all([
-        client().rpc("admin_dashboard_stats"),
-        client().from("profiles").select("id,username,display_name,email,whatsapp,role,created_at", { count: "exact" }).order("created_at", { ascending: false }).limit(1000),
-        client().from("orders").select("id,order_number,user_id,customer_name,whatsapp,email,total_amount,requires_quote,status,payment_status,created_at,order_items(product_title,variant_name,quantity)").order("created_at", { ascending: false }).limit(300),
+      // Gunakan schema yang sama dengan index/admin versi 4–6.
+      // Refund, garansi dan RPC statistik dari versi 1–3 bersifat opsional.
+      const [users, orders, products, refunds, warranties, audits, stats] = await Promise.all([
+        client().from("profiles").select("*", {count:"exact"}).order("created_at", {ascending:false}).limit(1000),
+        client().from("orders").select("*,order_items(*)").order("created_at", {ascending:false}).limit(300),
         loadProductsForAdmin(),
-        client().from("refund_requests").select("id,user_id,order_number,customer_contact,product_details,reason,requested_amount,status,admin_note,created_at").order("created_at", { ascending: false }).limit(200),
-        client().from("warranty_claims").select("id,user_id,order_number,customer_contact,product_details,issue_description,status,admin_note,created_at").order("created_at", { ascending: false }).limit(200),
-        client().from("audit_logs").select("id,actor_id,action,table_name,record_id,created_at").order("created_at", { ascending: false }).limit(150)
+        client().from("refund_requests").select("*").limit(200),
+        client().from("warranty_claims").select("*").limit(200),
+        client().from("audit_logs").select("*").limit(150),
+        client().rpc("admin_dashboard_stats")
       ]);
-      const names = ["statistik", "pengguna", "pesanan", "katalog", "refund", "garansi", "audit"];
-      results.forEach((result, index) => {
-        if (result.error) throw new Error(`Gagal memuat ${names[index]}: ${result.error.message}`);
-      });
-
-      const [statsResult, users, orders, products, refunds, warranties, audits] = results;
-      usersCache = users.data || [];
+      for (const [name, result] of [["pengguna",users],["pesanan",orders],["katalog",products]]) {
+        if (result.error) throw new Error(`Gagal memuat ${name}: ${result.error.message}`);
+      }
+      usersCache = (users.data || []).map(u => ({...u, whatsapp:u.whatsapp ?? u.phone ?? ""}));
       usersTotal = users.count ?? usersCache.length;
-      ordersCache = orders.data || [];
+      ordersCache = (orders.data || []).map(o => ({
+        ...o, total_amount:o.total_amount ?? o.amount ?? 0,
+        whatsapp:o.whatsapp ?? o.phone ?? o.customer_phone ?? "",
+        customer_name:o.customer_name ?? o.customer ?? "",
+        requires_quote: Boolean(o.requires_quote ?? o.quote_required),
+        order_items:(o.order_items||[]).map(i=>({ ...i,
+          product_title:i.product_title ?? i.product_name ?? "Produk"}))
+      }));
       productsCache = products.data || [];
-      refundsCache = refunds.data || [];
-      warrantyCache = warranties.data || [];
-      auditsCache = audits.data || [];
-
-      const stats = statsResult.data || {};
-      $("statUsers").textContent = stats.users_count ?? usersTotal;
-      $("statOrders").textContent = stats.orders_count ?? ordersCache.length;
-      $("statPending").textContent = stats.pending_orders_count ?? ordersCache.filter(order => !["completed", "cancelled", "refunded"].includes(order.status)).length;
-      $("statSales").textContent = money(stats.paid_sales_total ?? 0);
-      $("userCountText").textContent = `${usersTotal.toLocaleString("id-ID")} akun terdaftar · ${usersCache.length.toLocaleString("id-ID")} ditampilkan`;
-      renderUsers();
-      renderOrders();
-      renderProducts();
-      renderSupport();
-      renderAudits(auditsCache);
-      renderRecentOrders();
+      refundsCache = refunds.error ? [] : (refunds.data||[]);
+      warrantyCache = warranties.error ? [] : (warranties.data||[]);
+      auditsCache = audits.error ? [] : (audits.data||[]).map(row=>({
+        ...row, created_at:row.created_at ?? row.changed_at,
+        record_id:row.record_id ?? row.row_id,
+        actor_id:row.actor_id ?? "—"
+      })).sort((a,b)=>new Date(b.created_at||0)-new Date(a.created_at||0));
+      const stat = (!stats.error && stats.data) ? (Array.isArray(stats.data) ? stats.data[0] : stats.data) : {};
+      $("statUsers").textContent = stat?.users_count ?? usersTotal;
+      $("statOrders").textContent = stat?.orders_count ?? ordersCache.length;
+      $("statPending").textContent = stat?.pending_orders_count ?? ordersCache.filter(o => !["completed","cancelled","refunded"].includes(o.status)).length;
+      $("statSales").textContent = money(stat?.paid_sales_total ?? ordersCache
+        .filter(o=>o.payment_status==="paid")
+        .reduce((total,o)=>total+Number(o.total_amount||0),0));
+      $("userCountText").textContent = `${usersTotal} akun terdaftar · ${usersCache.length} ditampilkan`;
+      renderUsers();renderOrders();renderProducts();renderSupport();renderAudits(auditsCache);renderRecentOrders();
       await loadDevices();
+      window.dispatchEvent(new CustomEvent("rd190:admin-refreshed"));
     } catch (error) {
-      notify(error.message || "Gagal memuat data dashboard.", true);
+      notify(error.message || "Gagal memuat dashboard", true);
       console.error("Dashboard refresh failed:", error);
     } finally {
-      if (refreshButton) { refreshButton.disabled = false; refreshButton.textContent = "↻ Perbarui data"; }
+      if (refreshButton) {refreshButton.disabled=false;refreshButton.textContent="↻ Perbarui data";}
     }
   }
 
@@ -1086,25 +1107,23 @@ window.RD_CONFIG = {
 
   async function loadDevices() {
     if (!window.rdBackendReady) return false;
-    const { data, error } = await client().from("device_sessions")
-      .select("id,user_id,device_id,device_label,platform,user_agent,last_seen_at,is_active,signed_out_at,created_at")
-      .order("last_seen_at", { ascending: false }).limit(500);
-    if (error) {
-      deviceTableReady = false;
-      devicesCache = [];
-      $("statDevices").textContent = "—";
-      $("deviceActiveCount").textContent = "—";
-      $("deviceTotalCount").textContent = "—";
-      $("deviceUserCount").textContent = "—";
-      $("deviceCountText").textContent = "Tabel pemantauan belum tersedia.";
-      $("devicesTable").innerHTML = `<div class="empty">Fitur pemantauan perangkat belum diaktifkan pada database. Jalankan <strong>backend/sql/admin-enhancements.sql</strong> di Supabase SQL Editor, lalu perbarui halaman ini.<br><small>${esc(error.message)}</small></div>`;
-      $("recentDevices").innerHTML = `<div class="empty">Pemantauan perangkat menunggu migrasi database.</div>`;
+    const {data,error}=await client().from("device_sessions").select("*").limit(500);
+    if(error){
+      deviceTableReady=false;devicesCache=[];
+      ["statDevices","deviceActiveCount","deviceTotalCount","deviceUserCount"].forEach(id=>$(id).textContent="—");
+      $("deviceCountText").textContent="Tabel sesi belum tersedia.";
+      $("devicesTable").textContent="Tidak dapat membaca device_sessions: "+error.message;
       return false;
     }
-    deviceTableReady = true;
-    devicesCache = data || [];
-    renderDevices();
-    return true;
+    deviceTableReady=true;
+    devicesCache=(data||[]).map(d=>({...d,
+      last_seen_at:d.last_seen_at ?? d.last_seen,
+      created_at:d.created_at ?? d.last_seen,
+      platform:d.platform ?? d.device_label ?? "—",
+      device_id:d.device_id ?? d.id,
+      user_agent:d.user_agent ?? ""
+    })).sort((a,b)=>new Date(b.last_seen_at||0)-new Date(a.last_seen_at||0));
+    renderDevices();return true;
   }
 
   function renderDevices() {
@@ -1192,6 +1211,7 @@ window.RD_CONFIG = {
     $("variantPrice").value = variant?.price ?? "";
     $("variantOriginalPrice").value = variant?.original_price ?? "";
     $("variantStock").value = variant?.stock_status || "confirm";
+    $("variantQuantity").value = variant?.stock_quantity ?? "";
     $("variantDiscount").value = String(variant?.discount_enabled ?? false);
     const currentVariantOrders = (parent.product_variants || []).map(item => Number(item.sort_order || 0));
     $("variantSortOrder").value = variant?.sort_order ?? (Math.max(0, ...currentVariantOrders) + 1);
@@ -1227,7 +1247,7 @@ window.RD_CONFIG = {
       const existingId = $("productId").value.trim();
       const title = $("productTitle").value.trim();
       const id = existingId || slugify($("productSlug").value.trim() || title);
-      if (!id || !/^[a-z0-9][a-z0-9_-]{1,47}$/.test(id)) throw new Error("ID produk minimal 2 karakter dan hanya boleh berisi huruf kecil, angka, _ atau -.");
+      if (!id || !/^[a-z0-9][a-z0-9_-]{2,47}$/.test(id)) throw new Error("ID produk minimal 3 karakter dan hanya boleh berisi huruf kecil, angka, _ atau -.");
       const sortOrder = Number($("productSortOrder").value || 0);
       if (!Number.isSafeInteger(sortOrder) || sortOrder < 0) throw new Error("Urutan katalog harus berupa bilangan bulat positif atau nol.");
       newImageUrl = validImageUrl($("productImageUrl").value);
@@ -1289,6 +1309,7 @@ window.RD_CONFIG = {
         price,
         original_price: original,
         stock_status: $("variantStock").value,
+        stock_quantity: $("variantQuantity").value.trim() === "" ? null : Number($("variantQuantity").value),
         discount_enabled: $("variantDiscount").value === "true",
         note: $("variantNote").value.trim() || null,
         sort_order: sortOrder,
@@ -1483,6 +1504,117 @@ window.RD_CONFIG = {
   else init();
 })();
 
+</script>
+<script id="rd190-integration-v456">
+/* Kompatibilitas fitur 4–6; tidak menimpa event handler versi 1–3. */
+(()=>{
+  'use strict';
+  const $=id=>document.getElementById(id);
+  const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const date=x=>x?new Date(x).toLocaleString('id-ID'):'—';
+  const db=()=>window.rdSupabase;
+  const feedback=(node,msg)=>{if(node)node.textContent=msg;};
+  let tickets=[],posterAssets=[],paymentOrders=[],isAdmin=false;
+  async function authCheck(){
+    if(!db()||!window.rdBackendReady)return false;
+    const {data:{user},error}=await db().auth.getUser();if(error||!user)return false;
+    const res=await db().from('profiles').select('role').eq('id',user.id).maybeSingle();
+    return !res.error&&res.data?.role==='admin';
+  }
+  const statuses=['new','processing','closed','open','pending','resolved'];
+  async function refresh(){
+    if(!(isAdmin=await authCheck()))return;
+    const [a,t,o]=await Promise.all([db().from('store_assets').select('*'),db().from('support_tickets').select('*').order('created_at',{ascending:false}).limit(200),db().from('orders').select('*').order('created_at',{ascending:false}).limit(100)]);
+    if(a.error)feedback($('rdPosterAdmin'),'Poster belum bisa dibaca: '+a.error.message);
+    else{posterAssets=a.data||[];renderPosters();}
+    if(t.error)feedback($('rdTicketsAdmin'),'Tiket belum bisa dibaca: '+t.error.message);
+    else{tickets=t.data||[];renderTickets();}
+    if(o.error)feedback($('rdOrderPaymentAdmin'),'Pesanan tidak bisa dibaca: '+o.error.message);
+    else{paymentOrders=o.data||[];renderPaymentOrders();}
+  }
+  function renderPaymentOrders(){
+    const box=$('rdOrderPaymentAdmin');if(!box)return;
+    box.innerHTML=paymentOrders.length?`<div class="table-wrap"><table><thead><tr><th>Pesanan</th><th>Status</th><th>Pembayaran</th><th>Catatan admin</th><th>Aksi</th></tr></thead><tbody>${paymentOrders.map(o=>`<tr>
+      <td><b>${esc(o.order_number||o.id)}</b><small class="sub">${esc(o.customer_name||'—')}</small></td>
+      <td><select class="table-select" data-rd-payment-order-status="${esc(o.id)}">${['new','awaiting_confirmation','awaiting_payment','processing','completed','cancelled','failed','refunded'].map(x=>`<option value="${x}" ${o.status===x?'selected':''}>${x}</option>`).join('')}</select></td>
+      <td><select class="table-select" data-rd-payment-state="${esc(o.id)}">${['unpaid','pending','paid','failed','refunded'].map(x=>`<option value="${x}" ${o.payment_status===x?'selected':''}>${x}</option>`).join('')}</select></td>
+      <td><textarea data-rd-order-note="${esc(o.id)}" rows="2" style="width:180px;max-width:100%;border-radius:9px;background:var(--surface-2);color:var(--ink);padding:8px;border:1px solid var(--line)">${esc(o.admin_note||'')}</textarea></td>
+      <td><button type="button" class="mini-btn" data-rd-payment-save="${esc(o.id)}">Simpan</button></td>
+    </tr>`).join('')}</tbody></table></div>`:'<div class="empty">Belum ada pesanan.</div>';
+  }
+  async function savePayment(id,btn){
+    if(!isAdmin)return;
+    const status=document.querySelector(`[data-rd-payment-order-status="${id}"]`)?.value;
+    const payment_status=document.querySelector(`[data-rd-payment-state="${id}"]`)?.value;
+    const admin_note=document.querySelector(`[data-rd-order-note="${id}"]`)?.value||'';
+    if(payment_status==='paid' && !confirm('Pembayaran sudah benar-benar diterima dan terverifikasi?'))return;
+    btn.disabled=true;
+    try{
+      const {error}=await db().from('orders').update({status,payment_status,admin_note}).eq('id',id);
+      if(error)throw error;
+      await refresh();alert('Status pesanan tersimpan. Klik Perbarui Data untuk memperbarui tabel utama.');
+    }catch(e){alert('Tidak dapat menyimpan pesanan: '+e.message);}finally{btn.disabled=false;}
+  }
+  function renderPosters(){
+    const box=$('rdPosterAdmin');if(!box)return;
+    box.innerHTML=['mlbb','freefire'].map(slug=>{
+      const item=posterAssets.find(x=>x.slug===slug);
+      const label=slug==='mlbb'?'Mobile Legends':'Free Fire';
+      return `<section style="padding:14px 0;border-bottom:1px solid var(--line)">
+        <h3 style="margin:0 0 10px">${label}</h3>
+        ${item?.image_url?`<img src="${esc(item.image_url)}" alt="Poster ${label}" style="width:min(240px,100%);max-height:250px;object-fit:contain;display:block;margin-bottom:12px;border-radius:12px" loading="lazy">`:'<p class="muted">Belum ada poster online.</p>'}
+        <input type="file" accept="image/jpeg,image/png,image/webp,image/avif" data-rd-poster-input="${slug}" aria-label="Unggah poster ${label}" style="max-width:260px">
+        <button type="button" class="mini-btn" data-rd-upload="${slug}">Unggah / ganti poster</button>
+      </section>`;
+    }).join('');
+  }
+  function renderTickets(){
+    const box=$('rdTicketsAdmin');if(!box)return;
+    box.innerHTML=tickets.length?`<div class="table-wrap"><table><thead><tr><th>Tanggal / tipe</th><th>Pesanan / pesan</th><th>Status</th><th>Balasan admin</th></tr></thead><tbody>${tickets.map(t=>`<tr>
+      <td>${date(t.created_at)}<br><small>${esc(t.ticket_type)}</small></td>
+      <td>${esc(t.order_number||'—')}<br><small>${esc(t.message)}</small></td>
+      <td><select class="table-select" data-rd-ticket-status="${esc(t.id)}">${Array.from(new Set([...statuses,String(t.status||'open')])).map(s=>`<option value="${esc(s)}" ${t.status===s?'selected':''}>${esc(s)}</option>`).join('')}</select></td>
+      <td><textarea data-rd-ticket-reply="${esc(t.id)}" rows="2" style="width:100%;min-width:150px;border-radius:9px;background:var(--surface-2);color:var(--ink);padding:8px;border:1px solid var(--line)">${esc(t.admin_reply||'')}</textarea><button type="button" class="mini-btn" data-rd-save-ticket="${esc(t.id)}">Simpan</button></td>
+    </tr>`).join('')}</tbody></table></div>`:'<div class="empty">Belum ada tiket bantuan.</div>';
+  }
+  async function posterUpload(slug,btn){
+    if(!isAdmin)return;
+    const input=document.querySelector(`[data-rd-poster-input="${slug}"]`),file=input?.files?.[0];
+    if(!file){alert('Pilih gambar dahulu.');return;}
+    if(!['image/jpeg','image/png','image/webp','image/avif'].includes(file.type)||file.size>5*1024*1024){alert('Format JPG/PNG/WEBP/AVIF, ukuran maksimal 5MB.');return;}
+    btn.disabled=true;
+    try{
+      const extension=({ 'image/jpeg':'jpg','image/png':'png','image/webp':'webp','image/avif':'avif' })[file.type];
+      const random=(window.crypto?.randomUUID?.()||String(Date.now()));
+      const filePath=`posters/${random}.${extension}`;
+      const uploaded=await db().storage.from('rd190-images').upload(filePath,file,{upsert:false,contentType:file.type});
+      if(uploaded.error)throw uploaded.error;
+      const {data}=db().storage.from('rd190-images').getPublicUrl(filePath);
+      const updated=await db().from('store_assets').upsert({slug,title:slug==='mlbb'?'Price List Mobile Legends':'Price List Free Fire',image_url:data.publicUrl,updated_at:new Date().toISOString()},{onConflict:'slug'});
+      if(updated.error)throw updated.error;
+      await refresh();alert('Poster berhasil diperbarui.');
+    }catch(error){alert('Gagal menyimpan poster: '+error.message);}finally{btn.disabled=false;}
+  }
+  async function saveTicket(id,btn){
+    if(!isAdmin)return;
+    btn.disabled=true;
+    try{
+      const status=document.querySelector(`[data-rd-ticket-status="${id}"]`)?.value;
+      const admin_reply=document.querySelector(`[data-rd-ticket-reply="${id}"]`)?.value||'';
+      const result=await db().from('support_tickets').update({status,admin_reply}).eq('id',id);
+      if(result.error)throw result.error;
+      await refresh();alert('Tiket bantuan diperbarui.');
+    }catch(error){alert('Gagal menyimpan tiket: '+error.message);}finally{btn.disabled=false;}
+  }
+  document.addEventListener('click',e=>{
+    const upload=e.target.closest('[data-rd-upload]');if(upload){posterUpload(upload.dataset.rdUpload,upload);return;}
+    const save=e.target.closest('[data-rd-save-ticket]');if(save){saveTicket(save.dataset.rdSaveTicket,save);return;}
+    const paid=e.target.closest('[data-rd-payment-save]');if(paid){savePayment(paid.dataset.rdPaymentSave,paid);return;}
+    const tab=e.target.closest('[data-admin-tab="posters"],[data-admin-tab="tickets"]');if(tab)setTimeout(refresh,0);
+  });
+  window.addEventListener('rd190:admin-refreshed',refresh);
+  document.addEventListener('DOMContentLoaded',()=>{if(window.rdBackendReady)refresh();});
+})();
 </script>
 </body>
 </html>
